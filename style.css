@@ -27,6 +27,10 @@ body {
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     animation: fadeIn 0.5s ease;
+
+    /* Enable Scrolling for tall content */
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .page.active {
@@ -214,13 +218,21 @@ p {
         font-size: 1.2rem;
     }
 
+    /* Stack gifts on mobile */
     .gift-grid {
         grid-template-columns: 1fr;
     }
 
-    /* Stack gifts on mobile */
+    /* Stack gallery images on mobile */
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .gallery img {
-        width: 80px;
-        height: 80px;
+        width: 85%;
+        /* Larger on mobile */
+        max-width: none;
+        /* Allow filling the screen */
     }
 }
