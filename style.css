@@ -131,17 +131,29 @@ p {
 /* Gallery for Miss You */
 .gallery {
     display: flex;
-    gap: 10px;
+    gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .gallery img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+    /* Desktop: Side by side, constrained width */
+    width: 30%;
+    max-width: 300px;
+    min-width: 200px;
+    height: auto;
+    /* Preserve aspect ratio */
+
     border-radius: 10px;
     border: 3px solid #ff6f91;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    z-index: 10;
 }
 
 /* Letter Content */
