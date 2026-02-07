@@ -23,7 +23,8 @@ body {
     width: 90%;
     max-width: 600px;
     background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
+    padding: 20px 20px 60px 20px;
+    /* Extra bottom padding for scrolling */
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     animation: fadeIn 0.5s ease;
@@ -209,7 +210,7 @@ p {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     h1 {
         font-size: 1.8rem;
     }
@@ -227,12 +228,17 @@ p {
     .gallery {
         flex-direction: column;
         align-items: center;
+        width: 100%;
     }
 
     .gallery img {
-        width: 85%;
-        /* Larger on mobile */
+        width: 90%;
+        /* Wider on mobile */
         max-width: none;
-        /* Allow filling the screen */
+        min-width: 0;
+        /* Override desktop min-width */
+        height: auto;
+        margin-bottom: 20px;
+        /* Space between stacked images */
     }
 }
