@@ -1,24 +1,23 @@
-// Page Navigation Logic
-// Background Music Logic
+// Background Music & Overlay Logic
 const music = document.getElementById('bg-music');
+const overlay = document.getElementById('start-overlay');
 
-function playMusic() {
+function startExperience() {
+    // 1. Play Music
     if (music.paused) {
         music.play().then(() => {
             console.log("Music playing");
-            // Remove listener once playing to stop checking
-            document.removeEventListener('click', playMusic);
         }).catch(err => {
-            console.log("Autoplay blocked, waiting for interaction");
+            console.log("Autoplay blocked:", err);
         });
     }
+
+    // 2. Hide Overlay
+    overlay.classList.add('hidden');
 }
 
-// Try to play on load
-document.addEventListener('DOMContentLoaded', playMusic);
-
-// Retry on ANY click until successful
-document.addEventListener('click', playMusic);
+// User MUST interact to enable audio (Browser Policy)
+overlay.addEventListener('click', startExperience);
 
 function nextPage(pageId) {
     // Hide all pages
