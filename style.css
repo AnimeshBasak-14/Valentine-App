@@ -232,13 +232,15 @@ p {
     }
 
     .gallery img {
-        width: 90%;
-        /* Wider on mobile */
-        max-width: none;
+        width: auto;
+        /* Allow width to adjust based on height constraint */
+        max-width: 100%;
+        /* Ensure it doesn't overflow width */
+        max-height: 60vh;
+        /* Cap height for portrait images to fit on screen */
         min-width: 0;
-        /* Override desktop min-width */
         height: auto;
         margin-bottom: 20px;
-        /* Space between stacked images */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 }
