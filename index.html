@@ -26,8 +26,15 @@
     <!-- 1. Intro Page -->
     <div id="page-intro" class="page active">
         <h1>Hey! I made something for you...</h1>
-        <!-- User will add their own spinning GIF here -->
-        <img src="https://placehold.co/250x250?text=Your+Spinning+GIF" alt="Spinning Couple" class="main-gif">
+        <!-- Spinning GIF (User Provided) -->
+        <div class="tenor-gif-embed" data-postid="13576102" data-share-method="host" data-aspect-ratio="1.715"
+            data-width="100%">
+            <a href="https://tenor.com/view/darling-in-the-franxx-ditf-zero-two-02-hiro-gif-13576102">Darling In The
+                Franxx Ditf GIF</a>
+            from <a href="https://tenor.com/search/darling+in+the+franxx-gifs">Darling In The Franxx GIFs</a>
+        </div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
         <p>Do you wanna see??</p>
         <div class="buttons">
             <button class="btn yes-btn" onclick="nextPage('page-good-girl')">Yes</button>
@@ -38,8 +45,13 @@
     <!-- 2. Error Page (If No) -->
     <div id="page-no-error" class="page">
         <h1>How dare you! 😡</h1>
-        <!-- User will add their own angry GIF here -->
-        <img src="https://placehold.co/250x250?text=Your+Angry+GIF" alt="Angry Chase" class="main-gif">
+        <!-- Angry GIF Placeholder -->
+        <a href="https://tenor.com/search/angry-anime-girl-chasing-gifs" target="_blank"
+            title="Click to find an angry GIF!">
+            <img src="https://placehold.co/250x250?text=Click+to+Find+Angry+GIF" alt="Angry Chase" class="main-gif"
+                style="cursor: pointer; border: 2px dashed red;">
+        </a>
+        <p style="font-size: 1rem; color: #d32f2f;">(Click image to find a GIF, then get its Embed Code!)</p>
         <button class="btn" onclick="nextPage('page-intro')">Try Again</button>
     </div>
 
