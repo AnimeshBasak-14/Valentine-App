@@ -1,13 +1,13 @@
 // Page Navigation Logic
 // Background Music Logic
 const music = document.getElementById('bg-music');
-let isPlaying = false;
 
 function playMusic() {
-    if (!isPlaying && music) {
+    if (music.paused) {
         music.play().then(() => {
-            isPlaying = true;
             console.log("Music playing");
+            // Remove listener once playing to stop checking
+            document.removeEventListener('click', playMusic);
         }).catch(err => {
             console.log("Autoplay blocked, waiting for interaction");
         });
@@ -17,10 +17,8 @@ function playMusic() {
 // Try to play on load
 document.addEventListener('DOMContentLoaded', playMusic);
 
-// Fallback: Play on first click
-document.body.addEventListener('click', () => {
-    playMusic();
-}, { once: true });
+// Retry on ANY click until successful
+document.addEventListener('click', playMusic);
 
 function nextPage(pageId) {
     // Hide all pages
