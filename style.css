@@ -211,8 +211,16 @@ p {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .page {
+        justify-content: flex-start;
+        /* Fix cutoff: Start content at top */
+        padding-top: 40px;
+        /* spacing from top */
+    }
+
     h1 {
         font-size: 1.8rem;
+        margin-top: 20px;
     }
 
     p {

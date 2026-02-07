@@ -1,4 +1,27 @@
 // Page Navigation Logic
+// Background Music Logic
+const music = document.getElementById('bg-music');
+let isPlaying = false;
+
+function playMusic() {
+    if (!isPlaying && music) {
+        music.play().then(() => {
+            isPlaying = true;
+            console.log("Music playing");
+        }).catch(err => {
+            console.log("Autoplay blocked, waiting for interaction");
+        });
+    }
+}
+
+// Try to play on load
+document.addEventListener('DOMContentLoaded', playMusic);
+
+// Fallback: Play on first click
+document.body.addEventListener('click', () => {
+    playMusic();
+}, { once: true });
+
 function nextPage(pageId) {
     // Hide all pages
     document.querySelectorAll('.page').forEach(page => {
