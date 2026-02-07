@@ -1,0 +1,15 @@
+<svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <!-- Box Body -->
+    <rect x="25" y="50" width="100" height="80" fill="#FF6F91" stroke="#D81B60" stroke-width="2" rx="5" />
+    <!-- Vertical Ribbon -->
+    <rect x="65" y="50" width="20" height="80" fill="#FFF" />
+    <!-- Lid -->
+    <rect x="20" y="30" width="110" height="30" fill="#FF8BA7" stroke="#D81B60" stroke-width="2" rx="3" />
+    <!-- Horizontal Ribbon on Lid -->
+    <rect x="65" y="30" width="20" height="30" fill="#FFF" />
+    
+    <!-- Animation: Shake -->
+    <animateTransform attributeName="transform" type="rotate" values="0 75 75; -5 75 75; 5 75 75; 0 75 75" dur="0.5s" repeatCount="indefinite" />
+  </g>
+</svg>

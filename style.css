@@ -5,182 +5,210 @@ body {
     justify-content: center;
     align-items: center;
     background-image: url("heart-bg.jpg");
+    background-size: cover;
+    background-position: center;
     font-family: "Pixelify Sans", sans-serif;
     overflow: hidden;
+    color: #4a0e1c;
 }
 
-/* Envelope Screen */
-#envelope-container {
+/* Page Management */
+.page {
+    display: none;
+    /* Hidden by default */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    cursor:pointer;
+    width: 90%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease;
 }
 
-@keyframes pulse {
+.page.active {
+    display: flex;
+    /* Visible when active */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Typography */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+/* Images */
+.main-gif {
+    width: 90%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin: 15px 0;
+    object-fit: cover;
+}
+
+.content-img {
+    width: 250px;
+    height: auto;
+    margin: 15px 0;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 50px;
+    background: #ff6f91;
+    color: white;
+    font-family: inherit;
+    transition: transform 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    background: #ff4d79;
+}
+
+.yes-btn {
+    background: #4caf50;
+}
+
+.no-btn {
+    background: #f44336;
+}
+
+/* Grid for Gifts */
+.gift-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.gift-item {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.gift-item:hover {
+    transform: translateY(-5px);
+}
+
+.gift-item img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Gallery for Miss You */
+.gallery {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gallery img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid #ff6f91;
+}
+
+/* Letter Content */
+.letter-content {
+    background: #fff0f5;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px dashed #ff6f91;
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    margin: 20px 0;
+}
+
+/* Animation Utilities */
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
     0% {
-        transform:scale(1);
+        transform: translateY(0px) rotate(0deg);
     }
+
     50% {
-        transform: scale(1.1);
+        transform: translateY(-10px) rotate(2deg);
     }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+.animate-pulse {
+    animation: pulse-slow 2s infinite;
+}
+
+@keyframes pulse-slow {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
     100% {
         transform: scale(1);
     }
 }
 
-#envelope{
-    width: min(200px, 70vw);
-    animation: pulse 1.5s infinite;
-    cursor: pointer;
-}
-#letter-container{
-    display: none;
-    position:fixed;
-    inset: 0;
-    justify-content: center;
-    align-items: center;
-}
-
-.letter-window{
-    width: 90vw;
-    max-width: 800px;
-    aspect-ratio: 3/2;
-    padding: 20px 20px 0 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-image: url("window.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 12px;
-    gap: 1px;
-    padding-top: 180px;
-
-    transform: scale(1.2);
-    opacity: 0;
-    transition: transform 0.6s ease, opacity 0.6s ease;
-}
-
-.letter-window.open {
-    transform: scale(1);
-    opacity: 1;
-}
-
-h1 {
-    font-size: 30px;
-    margin:0;
-}
-
-p {
-    font-size: 40px;
-}
-
-/* Cat */
-
-.cat {
-    width: 250px;
-    margin: 10px 0;
-    transition: width 0.4s ease;
-}
-
-.letter-window.final .cat {
-    width: 180px;
-}
-
-/* buttons */
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    position: relative;
-}
-
-.no-wrapper{
-    position:relative;
-}
-
-.btn {
-    width: 120px;
-    cursor: pointer;
-    user-select: none;
-}
-
-.yes-btn,
-.no-btn {
-width: 120px;
-height: auto;
-display: inline-block;
-}
-
-.yes-btn {
-    position: relative;
-    z-index: 2;
-    transform-origin: center center;
-    transition: transform 0.3s ease;
-}
-
-.no-btn {
-    z-index: 1;
-    position: relative;
-    transition: transform 0.15s ease;
-    cursor: default;
-}
-
-.final-text{
-    font-size: 22px;
-    line-height: 1.4;
-    text-align: center;
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: rgba(255,240,240,0.5);
-    border-radius: 12px;
-}
-@media (max-width: 768px) {
+/* Responsive */
+@media (max-width: 600px) {
     h1 {
-        font-size: 22px;
+        font-size: 1.8rem;
     }
 
     p {
-        font-size: 26px;
+        font-size: 1.2rem;
     }
 
-    .cat {
-        width: 200px;
+    .gift-grid {
+        grid-template-columns: 1fr;
     }
 
-    .btn {
-        width: 100px;
-    }
-
-    .letter-window {
-        padding-top: 140px;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 18px;
-    }
-
-    p {
-        font-size: 22px;
-    }
-
-    .cat {
-        width: 160px;
-    }
-
-    .btn {
-        width: 85px;
-    }
-
-    .buttons {
-        gap: 16px;
-    }
-
-    .final-text {
-        font-size: 18px;
+    /* Stack gifts on mobile */
+    .gallery img {
+        width: 80px;
+        height: 80px;
     }
 }

@@ -2,62 +2,111 @@
 <html lang="en">
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valentine 💖</title>
 
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="icon-192.png">
     <meta name="theme-color" content="#ff6f91">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Valentine 💖">
-
-    <!-- Viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Aldrich&family=Pixelify+Sans:wght@400..700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet" />
 
-    <!-- Styles -->
     <link rel="stylesheet" href="style.css" />
+</head>
 
-    <!-- App title -->
-    <title>Valentine Letter 💌</title>
-  </head>
+<body>
 
-  <body>
-    <!-- Envelope Screen -->
-    <div id="envelope-container">
-      <img src="envelope.png" alt="Envelope" id="envelope" />
-      <p>♡ Letter for You ♡</p>
-    </div>
-
-    <!-- Letter Screen -->
-    <div id="letter-container">
-      <div class="letter-window">
-        <h1 id="letter-title">Will you be my Valentine?</h1>
-
-        <img src="cat_heart.gif" class="cat" id="letter-cat" />
-
-        <div class="buttons" id="letter-buttons">
-          <img src="yes.png" class="btn yes-btn" alt="Yes" />
-
-          <div class="no-wrapper">
-            <img src="no.png" class="btn no-btn" alt="No" />
-          </div>
+    <!-- 1. Intro Page -->
+    <div id="page-intro" class="page active">
+        <h1>Hey! I made something for you...</h1>
+        <!-- User will add their own spinning GIF here -->
+        <img src="https://placehold.co/250x250?text=Your+Spinning+GIF" alt="Spinning Couple" class="main-gif">
+        <p>Do you wanna see??</p>
+        <div class="buttons">
+            <button class="btn yes-btn" onclick="nextPage('page-good-girl')">Yes</button>
+            <button class="btn no-btn" onclick="nextPage('page-no-error')">No</button>
         </div>
-
-        <p id="final-text" class="final-text" style="display: none">
-          <strong>Valentine Date:</strong> Kanopa at 6pm. Dress fancy!
-        </p>
-      </div>
     </div>
+
+    <!-- 2. Error Page (If No) -->
+    <div id="page-no-error" class="page">
+        <h1>How dare you! 😡</h1>
+        <!-- User will add their own angry GIF here -->
+        <img src="https://placehold.co/250x250?text=Your+Angry+GIF" alt="Angry Chase" class="main-gif">
+        <button class="btn" onclick="nextPage('page-intro')">Try Again</button>
+    </div>
+
+    <!-- 3. Good Girl Page -->
+    <div id="page-good-girl" class="page">
+        <h1>Good girl! 💖</h1>
+        <img src="cat_heart.gif" alt="Cute Cat" class="main-gif">
+        <button class="btn" onclick="nextPage('page-chocolate')">Next</button>
+    </div>
+
+    <!-- 4. Chocolate Page -->
+    <div id="page-chocolate" class="page">
+        <h1>Happy Chocolate Day! 🍫</h1>
+        <!-- Animated SVG -->
+        <img src="chocolate.svg" alt="Chocolates" class="content-img animate-float">
+        <button class="btn" onclick="nextPage('page-gift-menu')">Next</button>
+    </div>
+
+    <!-- 5. Gift Menu Page -->
+    <div id="page-gift-menu" class="page">
+        <h1>Pick a Gift 🎁</h1>
+        <div class="gift-grid">
+            <div class="gift-item" onclick="nextPage('page-gift-letter')">
+                <img src="gift.svg" alt="Gift 1">
+                <p>Open Me</p>
+            </div>
+            <div class="gift-item" onclick="nextPage('page-gift-miss-u')">
+                <img src="gift.svg" alt="Gift 2">
+                <p>Miss U</p>
+            </div>
+            <div class="gift-item" onclick="nextPage('page-final')">
+                <img src="gift.svg" alt="Gift 3">
+                <p>Final Surprise</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Gift 1: Letter -->
+    <div id="page-gift-letter" class="page">
+        <h1>My Love Letter 💌</h1>
+        <img src="letter.svg" alt="Love Letter" class="content-img animate-pulse">
+        <div class="letter-content">
+            <p>"To my dearest Valentine...<br>You mean the world to me!<br>I love you so much! ❤️"</p>
+        </div>
+        <button class="btn back-btn" onclick="nextPage('page-gift-menu')">Back</button>
+    </div>
+
+    <!-- 7. Gift 2: Miss You -->
+    <div id="page-gift-miss-u" class="page">
+        <h1>I Miss You... 🥺</h1>
+        <div class="gallery">
+            <img src="couple1.svg" alt="Hug" class="animate-float">
+            <img src="couple2.svg" alt="Kiss" class="animate-float" style="animation-delay: 0.5s">
+            <img src="couple3.svg" alt="Love" class="animate-float" style="animation-delay: 1s">
+        </div>
+        <button class="btn back-btn" onclick="nextPage('page-gift-menu')">Back</button>
+    </div>
+
+    <!-- 8. Final Page -->
+    <div id="page-final" class="page">
+        <h1>All this for you 🌹</h1>
+        <h2>My Valentine 💖</h2>
+        <img src="cat_dance.gif" alt="Romantic GIF" class="main-gif">
+        <p>You make my heart smile!</p>
+    </div>
+
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>

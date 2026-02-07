@@ -1,50 +1,30 @@
-// Elements
-const envelope = document.getElementById("envelope-container");
-const letter = document.getElementById("letter-container");
-const noBtn = document.querySelector(".no-btn");
-const yesBtn = document.querySelector(".btn[alt='Yes']");
+// Page Navigation Logic
+function nextPage(pageId) {
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
 
-const title = document.getElementById("letter-title");
-const catImg = document.getElementById("letter-cat");
-const buttons = document.getElementById("letter-buttons");
-const finalText = document.getElementById("final-text");
-
-// Click Envelope
-envelope.addEventListener("click", () => {
-    envelope.style.display = "none";
-    letter.style.display = "flex";
-
-    setTimeout(() => {
-        document.querySelector(".letter-window").classList.add("open");
-    }, 50);
-});
-
-// Move NO button (desktop + mobile)
-function moveNoButton() {
-    const container = document.querySelector(".letter-window");
-    const rect = container.getBoundingClientRect();
-
-    const maxX = rect.width / 2 - 90;
-    const maxY = rect.height / 2 - 90;
-
-    const moveX = (Math.random() * 2 - 1) * maxX;
-    const moveY = (Math.random() * 2 - 1) * maxY;
-
-    noBtn.style.transition = "transform 0.25s ease";
-    noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    // Show the target page
+    const targetPage = document.getElementById(pageId);
+    if (targetPage) {
+        targetPage.classList.add('active');
+    }
 }
 
-noBtn.addEventListener("mouseover", moveNoButton);   // laptop
-noBtn.addEventListener("touchstart", moveNoButton); // phone
+// Special interaction for the No button (Running away logic - Optional but fun)
+const noBtn = document.querySelector('.no-btn');
+if (noBtn) {
+    noBtn.addEventListener('mouseover', () => {
+        // You can uncomment this to make the button run away like before!
+        // moveButton(noBtn);
+    });
+}
 
-// YES button clicked
-yesBtn.addEventListener("click", () => {
-    title.textContent = "Yippeeee! 💖";
-
-    catImg.src = "cat_dance.gif";
-
-    document.querySelector(".letter-window").classList.add("final");
-
-    buttons.style.display = "none";
-    finalText.style.display = "block";
-});
+function moveButton(btn) {
+    const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+    btn.style.position = 'absolute';
+    btn.style.left = `${x}px`;
+    btn.style.top = `${y}px`;
+}

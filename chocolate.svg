@@ -1,0 +1,20 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Pulsing Heart Box -->
+  <g transform="translate(100 100)">
+    <path d="M0 -30 C -50 -80, -100 -30, 0 30 C 100 -30, 50 -80, 0 -30" fill="#5D4037" stroke="#3E2723" stroke-width="3">
+      <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="1.5s" repeatCount="indefinite" />
+    </path>
+    <!-- Ribbon -->
+    <path d="M-30 -20 Q 0 -50 30 -20 Q 0 10 -30 -20" fill="none" stroke="#FFD700" stroke-width="5">
+      <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="1.5s" repeatCount="indefinite" />
+    </path>
+    <circle cx="0" cy="-20" r="10" fill="#FFD700" />
+  </g>
+  <!-- Sparkles -->
+  <circle cx="50" cy="50" r="2" fill="#FFF">
+    <animate attributeName="opacity" values="0;1;0" dur="2s" begin="0s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="150" cy="60" r="3" fill="#FFF">
+    <animate attributeName="opacity" values="0;1;0" dur="2s" begin="1s" repeatCount="indefinite" />
+  </circle>
+</svg>

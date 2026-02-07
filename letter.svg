@@ -1,0 +1,15 @@
+<svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <!-- Envelope Body -->
+    <rect x="25" y="40" width="100" height="70" fill="#FFF" stroke="#CCC" stroke-width="2" />
+    <path d="M25 40 L75 80 L125 40" fill="#F0F0F0" stroke="#CCC" stroke-width="2" />
+    
+    <!-- Heart Seal -->
+    <path d="M75 65 C 65 55, 60 65, 75 80 C 90 65, 85 55, 75 65" fill="#FF0000">
+       <animateTransform attributeName="transform" type="scale" values="1;1.2;1" dur="1s" repeatCount="indefinite" transform-origin="75 70" />
+    </path>
+
+    <!-- Floating Animation -->
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -10; 0 0" dur="2s" repeatCount="indefinite" />
+  </g>
+</svg>
